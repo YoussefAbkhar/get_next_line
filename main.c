@@ -4,11 +4,19 @@ int main()
 {
 	char *line;
 	int fd = open("test3.txt", O_RDONLY);
+	int fd1 = open ("test.txt", O_RDONLY);
 	int fd2 = open("test2.txt", O_RDONLY);
 	int fd3 = open("test4.txt", O_RDONLY);
 	int i = 1;
 	while (i != 0)
 	{
+		while (get_next_line(fd1,&line))
+		{
+			printf("%s\n",line);
+			ft_strdel(&line);
+		}
+		ft_strdel(&line);
+		ft_putendl("---------");
 		while (get_next_line(fd2, &line))
 		{
 			printf("%s\n",line);
